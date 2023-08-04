@@ -13,10 +13,10 @@ import Transaction from './pages/transactions';
 function App() {
   return (
       <Router>
-        <Route exact path ="/login"> <Login /> </Route>
           <Navbar />
           <Routes>
               <Route exact path='/' exact element={<Home />} />
+              <Route exact path ="/login"> <Login /> </Route>
               <Route path='/setup' element={<SetUp />} />
               <Route path='/transactions' element={<Transaction />} />
               <Route path='/signup' element={<SignUp />} />
