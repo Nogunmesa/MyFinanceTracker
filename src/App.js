@@ -1,7 +1,6 @@
 import React from 'react';
 import './App.css';
-import Login from './components/Login';
-import Log from './components/Login/Login';
+import Login from './containers/Login';
 import Navbar from './components/Navbar';
 import { BrowserRouter as Router, Routes, Route }
     from 'react-router-dom';
@@ -17,7 +16,6 @@ function App() {
           <Navbar />
           <Routes>
               <Route path = '/login' element={<Login />} />
-              <Route path = '/login' element={<Log />} />
               <Route exact path='/' element={<Home />} />
               <Route path='/setup' element={<SetUp />} />
               <Route path='/transactions' element={<Transaction />} />
