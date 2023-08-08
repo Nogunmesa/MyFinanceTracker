@@ -12,9 +12,15 @@ import Transaction from '../pages/transactions';
 function App() {
 
     return (
-  
-      <></>
-  
+      <Router>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/setup" element={<SetUp />} />
+          <Route path="/transactions" element={<Transaction />} />
+          <Route path="/signup" element={<SignUp />} />
+        </Routes>
+      </Router>
     );
   
   }
