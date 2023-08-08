@@ -4,20 +4,26 @@ import Login from './containers/Login';
 import Navbar from './components/Navbar';
 import { BrowserRouter as Router, Routes, Route }
     from 'react-router-dom';
-import Home from './components/pages';
-import SetUp from './components/pages/setup';
-import SignUp from './components/pages/signup';
-import Transaction from './components/pages/transactions';
+import Home from './pages';
+import SetUp from './pages/setup';
+import SignUp from './pages/signup';
+import Transaction from './pages/transactions';
 
 
 function App() {
+  return (
+      <Router>
+          <Navbar />
+          <Routes>
+              <Route exact path='/' element={<Home />} />
+              <Route path='/setup' element={<SetUp />} />
+              <Route path='/transactions' element={<Transaction />} />
+              <Route path='/signup' element={<SignUp />} />
 
-    return (
-  
-      <></>
-  
-    );
-  
-  }
-  
-  export default App;
+              <Route exact path="/login"> <Login /> </Route>
+          </Routes>
+      </Router>
+  );
+}
+
+export default App;
