@@ -21,11 +21,18 @@ export default function Login({setToken}){
     
     const handleSubmit=async e=>{
         e.preventDefault();
+        console.log('Submitting form');
+        try{
         const token = await loginUser({
             username,
             password
         });
+        console.log('Token received:', token);
         setToken(token);
+    }catch(error){
+        console.error('error: ', error);
+    }
+        
     }
     return(
         <div className="login-wrapper">
