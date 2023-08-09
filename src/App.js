@@ -12,7 +12,7 @@ export default function App() {
     <Router>
       <Routes>
         {/* Pass the setToken function as a prop to the Login component */}
-        <Route path="/login" element={<Login setToken={setToken} />} />
+        <Route path="/" element={<Login setToken={setToken} />} />
         <Route path="/home" element={<Home />} />
       </Routes>
     </Router>
