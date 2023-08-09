@@ -10,11 +10,12 @@ import Transaction from './pages/Transaction';
 import Login from '../Login/Login';
 
 export default function App() {
+  const[token, setToken] = useState(null);
   return (
     <Router>
       <Navbar />
       <Routes>
-      <Route path="/login" element={<Login setToken={setToken}/>} />
+        <Route path="/login" element={<Login setToken={setToken} />} />
         <Route path="/" element={<Home />} />
         <Route path="/setup" element={<SetUp />} />
         <Route path="/transactions" element={<Transaction />} />
