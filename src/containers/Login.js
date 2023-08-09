@@ -1,54 +1,17 @@
-import React, {useState} from "react";
-import "./Login.css";
+import React, { useState } from 'react';
+import './Login.css';
+import Login from '../components/Login/Login';
 
-export default function Login(){
-    // State variables for email and password
-    const[email,setEmail] = useState("");
-    const[password, setPassword] = useState("");
-    
-    // Function that checks if the form is valid for submission
-    // Checks if user inputed something (** need to optimize to make sure its valid email account)
-    function validateForm(){
-        return email.length > 0 && password.length > 0;
-    }
+export default function LoginContainer() {
+  // State to hold the token once the user is logged in
+  const [token, setToken] = useState(null);
 
-    // Function to handle form submission
-    function handleSubmit(event){
-        event.preventDefault();
-    }
-    
-    return(
-        <div className="Login">
-            {/* Login form */}
-            <form onSubmit={handleSubmit}>
-                {/* Input field for email */}
-                <div className="form-group">
-                    <label htmlFor="email">Email</label>
-                    <input
-                        autoFocus
-                        type="email"
-                        id="email"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                    />
-                </div>
-
-                {/* Input field for password */}
-                <div className="form-group">
-                    <label htmlFor="password">Password</label>
-                    <input
-                        type="password"
-                        id="password"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                    />
-                </div>
-
-                {/* Login button */}
-                <button className="btn" type="submit" disabled={!validateForm()}>
-                    Login
-                </button>
-            </form>
-        </div>
-    );
+  return (
+    <div className="LoginContainer">
+      {/* Render the Login component and pass the setToken function */}
+      <Login setToken={setToken} />
+      {/* You can also conditionally render content based on the token */}
+      {token && <p>You are logged in with token: {token}</p>}
+    </div>
+  );
 }
