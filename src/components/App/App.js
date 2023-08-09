@@ -1,28 +1,25 @@
 import React from 'react';
 import './App.css';
-import Navbar from '../Navbar';
-import { BrowserRouter as Router, Routes, Route }
-    from 'react-router-dom';
-import Home from '../pages';
-import SetUp from '../pages/setup';
-import SignUp from '../pages/signup';
-import Transaction from '../pages/transactions';
+import { BrowserRouter as Router, Route, Routes }
+ from 'react-router-dom';
+import Navbar from './Navbar';
+import Home from './pages';
+import SetUp from './pages/SetUp';
+import SignUp from './pages/SignUp';
+import Transaction from './pages/Transaction';
+import Login from '../Login/Login';
 
-
-function App() {
-
-    return (
-      <Router>
-        <Navbar />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/setup" element={<SetUp />} />
-          <Route path="/transactions" element={<Transaction />} />
-          <Route path="/signup" element={<SignUp />} />
-        </Routes>
-      </Router>
-    );
-  
-  }
-
-export default App;
+export default function App() {
+  return (
+    <Router>
+      <Navbar />
+      <Routes>
+      <Route path="/login" element={<Login />} />
+        <Route path="/" element={<Home />} />
+        <Route path="/setup" element={<SetUp />} />
+        <Route path="/transactions" element={<Transaction />} />
+        <Route path="/signup" element={<SignUp />} />
+      </Routes>
+    </Router>
+  );
+}
