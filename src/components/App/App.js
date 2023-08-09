@@ -8,9 +8,10 @@ import SetUp from './pages/SetUp';
 import SignUp from './pages/SignUp';
 import Transaction from './pages/Transaction';
 import Login from '../Login/Login';
+import useToken from './useToken'; // Import the useToken hook
 
 export default function App() {
-  const[token, setToken] = useState(null);
+  const {token, setToken} = useToken();
   return (
     <Router>
       <Navbar />
