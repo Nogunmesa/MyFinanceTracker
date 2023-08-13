@@ -1,7 +1,10 @@
 import React, {useState} from 'react';
+import Form from "react-bootstrap/Form";
+import Button from "react-bootstrap/Button";
 import "./Login.css";
 
 export default function Login(){
+    console.log('Entering here');
     // State variables for email and password
     const[email,setEmail] = useState("");
     const[password, setPassword] = useState("");
@@ -22,32 +25,26 @@ export default function Login(){
             {/* Login form */}
             <form onSubmit={handleSubmit}>
                 {/* Input field for email */}
-                <div className="form-group">
-                    <label htmlFor="email">Email</label>
-                    <input
-                        autoFocus
-                        type="email"
-                        id="email"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
+                <Form.Group size="lg" controlld="email">
+                    <Form.Label>Email</Form.Label>
+                    <Form.Control
+                    autoFocus
+                    type="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
                     />
-                </div>
-
-                {/* Input field for password */}
-                <div className="form-group">
-                    <label htmlFor="password">Password</label>
-                    <input
-                        type="password"
-                        id="password"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
+                </Form.Group>
+                <Form.Group size="lg" controlId="password">
+                    <Form.Label>Password</Form.Label>
+                    <Form.Control
+                    type="password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
                     />
-                </div>
-
-                {/* Login button */}
-                <button className="btn" type="submit" disabled={!validateForm()}>
+                </Form.Group>
+                <Button size="lg" type="submit" disabled={!validateForm()}>
                     Login
-                </button>
+                </Button>
             </form>
         </div>
     );

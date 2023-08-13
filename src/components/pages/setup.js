@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react';
 
-const SetUp = () => {
+export default function SetUp() {
     return (
         <div>
             <h1>
@@ -8,6 +8,4 @@ const SetUp = () => {
             </h1>
         </div>
     );
-};
-
-export default SetUp;
+}

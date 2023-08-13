@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Transactions = () => {
+export default function Transactions() {
     return (
         <div>
             <h1>
@@ -8,6 +8,4 @@ const Transactions = () => {
             </h1>
         </div>
     );
-};
-
-export default Transactions;
+}

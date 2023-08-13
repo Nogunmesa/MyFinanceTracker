@@ -1,8 +1,6 @@
 import React, {useState} from 'react';
 import PropTypes from 'prop-types';
 import './Login.css';
-import useToken from '../App/useToken'; // Update the import path
-
 
 async function loginUser(credentials){
     return fetch('http://localhost:8080/login',{
@@ -12,35 +10,32 @@ async function loginUser(credentials){
         },
         body: JSON.stringify(credentials)
     })
-    .then(data =>data.json())
+    .then(data => data.json())
 }
+
 export default function Login({setToken}){
     // State variables for username and password
-    const[username,setUsername] = useState();
+    const[username,setUserName] = useState();
     const[password, setPassword] = useState();
     
     const handleSubmit=async e=>{
-        e.preventDefault();
         console.log('Submitting form');
-        try{
+        e.preventDefault();
         const token = await loginUser({
             username,
             password
         });
-        console.log('Token received:', token);
+        console.log('token received:', token);
         setToken(token);
-    }catch(error){
-        console.error('error: ', error);
-    }
-        
-    }
+  }
+       
     return(
         <div className="login-wrapper">
             <h1>Please Log In</h1>
             <form onSubmit={handleSubmit}>
                 <label>
                     <p>Username</p>
-                    <input type="text" onChange={e => setUsername(e.target.value)}/>
+                    <input type="text" onChange={e => setUserName(e.target.value)}/>
                 </label>
                 <label>
                     <p>Password</p>

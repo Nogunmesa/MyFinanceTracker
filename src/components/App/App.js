@@ -1,27 +1,33 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './App.css';
-import { BrowserRouter as Router, Route, Routes }
- from 'react-router-dom';
-import Navbar from './Navbar';
-import Home from './pages';
-import SetUp from './pages/SetUp';
-import SignUp from './pages/SignUp';
-import Transaction from './pages/Transaction';
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Login from '../Login/Login';
-import useToken from './useToken'; // Import the useToken hook
+import Home from '../pages/index';
+import SetUp from '../pages/setup';
+import SignUp from '../pages/signup';
+import Transaction from '../pages/transactions';
+import useToken from './useToken';
 
-export default function App() {
+function App(){
   const {token, setToken} = useToken();
+
+  if(!token){
+    console.log('Null token continuing to Login')
+    return <Login setToken={setToken} />
+  }
   return (
-    <Router>
-      <Navbar />
+    <div className="wrapper">
+      <h1>Application</h1>
+      <BrowserRouter>
       <Routes>
-        <Route path="/login" element={<Login setToken={setToken} />} />
         <Route path="/" element={<Home />} />
-        <Route path="/setup" element={<SetUp />} />
-        <Route path="/transactions" element={<Transaction />} />
-        <Route path="/signup" element={<SignUp />} />
+        <Route path="/" element={<SetUp />} />
+        <Route path="/" element={<SignUp />} />
+        <Route path="/" element={<Transaction />} />
       </Routes>
-    </Router>
+      </BrowserRouter>
+    </div>
   );
 }
+
+export default App;
