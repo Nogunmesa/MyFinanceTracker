@@ -3,15 +3,37 @@ import PropTypes from 'prop-types';
 import './Login.css';
 
 async function loginUser(credentials){
-    return fetch('http://localhost:8080/login',{
-        method: 'POST',
-        headers: {
-            'Content-Type':'application/json'
-        },
-        body: JSON.stringify(credentials)
-    })
-    .then(data => data.json())
-}
+    try {
+        // TypeError: Failed to fetch
+        // The URL is either incomplete or incorrect
+        const response = await fetch('http://localhost:8080/login');
+        
+        if (!response.ok) {
+        
+        throw new Error(`Error! status: ${response.status}`);
+        
+        }
+        
+        const result = await response.json();
+        
+        return result;
+        
+        } catch (err) {
+        
+        console.log(err); }
+        
+        }
+        
+        loginUser();
+//     return fetch('http://localhost:8080/login',{
+//         method: 'POST',
+//         headers: {
+//             'Content-Type':'application/json'
+//         },
+//         body: JSON.stringify(credentials)
+//     })
+//     .then(data => data.json())
+// }
 
 export default function Login({setToken}){
     // State variables for username and password
