@@ -6,6 +6,7 @@ import Register from './components/Register/Register'; // Import the Register co
 import PrivateApp from './components/App/App';
 
 const App = () => {
+  console.log('we in here');
   const { token, setToken } = useToken();
   const isAuthenticated = !!token;
 
