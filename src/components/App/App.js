@@ -7,6 +7,7 @@ import SetUp from '../pages/setup';
 import SignUp from '../pages/signup';
 import Transaction from '../pages/transactions';
 import useToken from './useToken';
+import Navbar from '../Navbar';
 
 function App(){
   const {token, setToken} = useToken();
@@ -16,17 +17,15 @@ function App(){
     return <Login setToken={setToken} />
   }
   return (
-    <div className="wrapper">
-      <h1>Application</h1>
-      <BrowserRouter>
+    <Router>
+      <Navbar />
       <Routes>
         <Route path="/home" element={<Home />} />
         <Route path="/setup" element={<SetUp />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/transactions" element={<Transaction />} />
       </Routes>
-      </BrowserRouter>
-    </div>
+      </Router>
   );
 }
 
