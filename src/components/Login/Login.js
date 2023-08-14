@@ -1,8 +1,10 @@
+
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import './Login.css';
 
+// Function to send server login request
 async function loginUser(credentials) {
  return fetch('http://localhost:8080/login', {
    method: 'POST',
@@ -14,10 +16,12 @@ async function loginUser(credentials) {
    .then(data => data.json())
 }
 
+// Login props
 export default function Login({ setToken }) {
   const [username, setUserName] = useState();
   const [password, setPassword] = useState();
 
+  // Handles form submission
   const handleSubmit = async e => {
     e.preventDefault();
     const token = await loginUser({

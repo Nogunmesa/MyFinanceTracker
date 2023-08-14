@@ -1,9 +1,7 @@
-/* App.module.css */
+/* App.css */
 .app-container {
-  /* Your App-specific CSS rules here */
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  /* ... other styles ... */
 }

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import './AuthStyles.css';
 
+// Function to send server registration request
 async function registerUser(credentials) {
   return fetch('http://localhost:8080/register', {
     method: 'POST',
@@ -12,12 +13,13 @@ async function registerUser(credentials) {
   }).then(data => data.json());
 }
 
-
+// Login props
 export default function Register({ onRegister }) {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
 
+  // Handles form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
 

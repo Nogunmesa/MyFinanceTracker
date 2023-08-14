@@ -11,22 +11,26 @@ import useToken from './useToken';
 import Navbar from '../Navbar';
 
 function App() {
+  // Use useToken hook to manage authentication state
   const { token, setToken, removeToken } = useToken();
-  console.log('initial token: ', token);
 
+  // Log initial token when the componenet mounts
   useEffect(() => {
     console.log('token after registration (inside useEffect): ', token);
   }, [token]);
 
+  // Set new token for registration
   const handleRegister = async (newToken) => {
     await setToken(newToken); // Wait for setToken to complete
     console.log('token after registration (inside handleRegister): ', newToken);
   };
 
+  // Logout user by removing token
   const handleLogout = () => {
     removeToken();
   };
 
+  // Render content based upon the presence of a token
   if (!token) { // If null token, show login/register options
     return (
       <Router>
