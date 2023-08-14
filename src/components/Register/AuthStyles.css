@@ -1,57 +1,50 @@
 /* AuthStyles.css */
-.auth-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-  }
-  
-  .auth-box {
-    background-color: #fff;
-    border: 1px solid #ccc;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-    width: 300px;
-  }
-  
-  .auth-box h2 {
-    margin-top: 0;
-    margin-bottom: 20px;
-  }
-  
-  .auth-box form label {
-    display: block;
-    margin-bottom: 8px;
-  }
-  
-  .auth-box form input {
-    width: 100%;
-    padding: 8px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-  }
-  
-  .auth-box form button {
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 3px;
-    cursor: pointer;
-  }
-  
-  .auth-box form button:hover {
-    background-color: #0056b3;
-  }
-  
-  .auth-box p {
-    margin-top: 15px;
-    text-align: center;
-  }
-  
-  .auth-box p a {
-    color: #007bff;
-  }
-  
+
+.register-container {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  width: 300px;
+}
+
+.register-container h2 {
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+.register-container form label {
+  display: block;
+  margin-bottom: 8px;
+}
+
+.register-container form input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+.register-container form button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.register-container form button:hover {
+  background-color: #0056b3;
+}
+
+.register-container p {
+  margin-top: 15px;
+  text-align: center;
+}
+
+.register-container p a {
+  color: #007bff;
+}

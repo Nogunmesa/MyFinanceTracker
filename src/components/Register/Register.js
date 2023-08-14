@@ -31,7 +31,7 @@ export default function Register({ onRegister }) {
   };
 
   return (
-    <div className="auth-container">
+    <div className="register-container">
       <div className="auth-box">
         <h2>Register</h2>
         <form onSubmit={handleSubmit}>

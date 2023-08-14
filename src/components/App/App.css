@@ -1,3 +1,9 @@
-.wrapper{
-  padding: 20px;
+/* App.module.css */
+.app-container {
+  /* Your App-specific CSS rules here */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  /* ... other styles ... */
 }

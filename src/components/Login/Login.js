@@ -15,51 +15,39 @@ async function loginUser(credentials) {
 }
 
 export default function Login({ setToken }) {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+  const [username, setUserName] = useState();
+  const [password, setPassword] = useState();
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async e => {
     e.preventDefault();
+    const token = await loginUser({
+      username,
+      password
+    });
+    setToken(token);
+  }
 
-    const response = await loginUser({ username, password });
-    if (response.token) {
-      setToken(response.token);
-    } else {
-      console.error('Login failed:', response.error);
-    }
-  };
-
-  return (
-    <div className="auth-container">
-      <div className="auth-box">
-        <h2>Login</h2>
-        <form onSubmit={handleSubmit}>
-          <label>
-            Username:
-            <input
-              type="text"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
-            />
-          </label>
-          <label>
-            Password:
-            <input
-              type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
-          </label>
-          <button type="submit">Login</button>
+  return(
+    <div className='login-container'>
+      <h2>Login</h2>
+      <form onSubmit={handleSubmit}>
+        <label>
+          Username
+          <input type="text" onChange={e => setUserName(e.target.value)} />
+        </label>
+        <label>
+          Password
+          <input type="password" onChange={e => setPassword(e.target.value)} />
+        </label>
+          <button type="submit">Submit</button>
           <p>
             Don't have an account? <Link to="/register">Register now</Link>
           </p>
-        </form>
-      </div>
+      </form>
     </div>
   );
 }
 
 Login.propTypes = {
   setToken: PropTypes.func.isRequired
-}
+};

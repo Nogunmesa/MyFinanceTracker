@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import './App.css';
-import { BrowserRouter as Router, Route, Routes, Link, Navigate } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 import Login from '../Login/Login';
 import Register from '../Register/Register';
 import Home from '../pages/index';
@@ -9,7 +9,6 @@ import SignUp from '../pages/signup';
 import Transaction from '../pages/transactions';
 import useToken from './useToken';
 import Navbar from '../Navbar';
-import './App.css'; // Import the CSS styles
 
 function App() {
   const { token, setToken, removeToken } = useToken();
@@ -28,24 +27,22 @@ function App() {
     removeToken();
   };
 
-  if (!token) {
+  if (!token) { // If null token, show login/register options
     return (
       <Router>
-        <div className="auth-container">
-          <div className="auth-box">
-            <Routes>
-              <Route path="/login" element={<Login setToken={setToken} />} />
-              <Route
-                path="/register"
-                element={<Register onRegister={handleRegister} />}
-              />
-            </Routes>
-          </div>
-        </div>
+      <div className='app-container'>
+        <Routes>
+          {/* Redirect to /login by default */}
+          <Route path="/" redirectTo="/login" />
+          <Route path="/login" element={<Login setToken={setToken} />} />
+          <Route path="/register" element={<Register onRegister={handleRegister} />} />
+        </Routes>
+      </div>
       </Router>
     );
   }
 
+  // If token exists, user is logged in or registered
   return (
     <Router>
       <nav>
