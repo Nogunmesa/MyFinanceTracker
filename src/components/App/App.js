@@ -20,10 +20,10 @@ function App(){
       <h1>Application</h1>
       <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/" element={<SetUp />} />
-        <Route path="/" element={<SignUp />} />
-        <Route path="/" element={<Transaction />} />
+        <Route path="/home" element={<Home />} />
+        <Route path="/setup" element={<SetUp />} />
+        <Route path="/signup" element={<SignUp />} />
+        <Route path="/transactions" element={<Transaction />} />
       </Routes>
       </BrowserRouter>
     </div>

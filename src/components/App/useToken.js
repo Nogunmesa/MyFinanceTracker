@@ -13,10 +13,10 @@ export default function useToken(){
     
     
 
-    const [token, setToken] = useState(getToken() || {}); // Set initial value to null if token is not available
+    const [token, setToken] = useState(getToken() || null); // Set initial value to null if token is not available
     const saveToken = userToken => {
         localStorage.setItem('token',JSON.stringify(userToken));
-        setToken(userToken.token);
+        setToken(userToken);
     };
 
     
