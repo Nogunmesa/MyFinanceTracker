@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import './App.css';
-import { BrowserRouter as Router, Route, Routes} from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, Navigate} from 'react-router-dom';
 import Login from '../Login/Login';
 import Register from '../Register/Register';
 import Home from '../pages/index';
@@ -37,7 +37,7 @@ function App() {
       <div className='app-container'>
         <Routes>
           {/* Redirect to /login by default */}
-          <Route path="/" redirectTo="/login" />
+          <Route path="/" element={<Navigate to="/login" />} />
           <Route path="/login" element={<Login setToken={setToken} />} />
           <Route path="/register" element={<Register onRegister={handleRegister} />} />
         </Routes>
