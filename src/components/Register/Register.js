@@ -13,10 +13,26 @@ async function registerUser(credentials) {
   }).then(data => data.json());
 }
 
+// Show input error message
+function showError(message) {
+  var span = document.createElement('span');
+  var errorWrap = document.getElementById("error");
+
+  span.appendChild(document.createTextNode(message));
+  errorWrap.appendChild(span);
+
+  setTimeout(function(){ span.parentNode.removeChild(span); }, 2000);
+
+  return false;
+}
+
+
+
 // Login props
 export default function Register({ onRegister }) {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
   const navigate = useNavigate();
 
   // Handles form submission
@@ -29,6 +45,7 @@ export default function Register({ onRegister }) {
       navigate('/login'); // Redirect to the protected route on successful registration
     } else {
       console.error('Registration failed:', response.error);
+      setError(response.error);
     }
   };
 
@@ -54,6 +71,7 @@ export default function Register({ onRegister }) {
             />
           </label>
           <button type="submit">Register</button>
+          <p className="error-message">{error}</p>
           <p>
             Already have an account? <Link to="/login">Login now</Link>
           </p>

@@ -18,17 +18,17 @@ app.post('/register', (req, res) => {
     if (!users.some(user => user.username === username)) { //username and password is unique
       users.push({ username, password });
       const token = jwt.sign({ username }, secretKey, { expiresIn: '1m' });
-      res.status(201).send({
+      res.status(201).json({
         message: 'User registered successfully',
         token,
       });
     } else {
-      res.status(409).send({
+      res.status(409).json({
         error: 'Username already exists',
       });
     }
   } else {
-    res.status(400).send({
+    res.status(400).json({
       error: 'Username and password are required',
     });
   }
@@ -43,7 +43,7 @@ app.use('/login', (req, res) => {
       token,
     });
   } else {
-    res.status(401).send({
+    res.status(401).json({
       error: 'Invalid credentials',
     });
   }

@@ -20,6 +20,7 @@ async function loginUser(credentials) {
 export default function Login({ setToken }) {
   const [username, setUserName] = useState();
   const [password, setPassword] = useState();
+  const [error, setError] = useState('');
 
   // Handles form submission
   const handleSubmit = async e => {
@@ -29,6 +30,7 @@ export default function Login({ setToken }) {
       password
     });
     setToken(token);
+    setError(token.error);
   }
 
   return(
@@ -44,6 +46,7 @@ export default function Login({ setToken }) {
           <input type="password" onChange={e => setPassword(e.target.value)} />
         </label>
           <button type="submit">Submit</button>
+          <p className="error-message">{error}</p>
           <p>
             Don't have an account? <Link to="/register">Register now</Link>
           </p>
