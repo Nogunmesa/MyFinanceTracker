@@ -1,0 +1,43 @@
+/* AddAccountFormStyles.css */
+
+.account-form {
+    background-color: #f5f5f5;
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    width: 300px;
+    margin: 20px;
+  }
+  
+  .account-form h3 {
+    margin-top: 0;
+    margin-bottom: 20px;
+  }
+  
+  .account-form form label {
+    display: block;
+    margin-bottom: 8px;
+  }
+  
+  .account-form form input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+  }
+  
+  .account-form form button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+  
+  .account-form form button:hover {
+    background-color: #0056b3;
+  }
+  

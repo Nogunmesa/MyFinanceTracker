@@ -53,6 +53,4 @@ function isValidCredentials(username, password) {
   const user = users.find(u => u.username === username && u.password === password);
   return !!user;
 }
-
-
 app.listen(8080, () => console.log('API is running on http://localhost:8080'));
