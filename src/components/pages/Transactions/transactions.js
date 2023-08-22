@@ -62,7 +62,7 @@ function Transactions() {
                   >
                     {accounts.map((account, index) => (
                       <option key={index} value={index}>
-                        {account.name}
+                        {account.accountNumber}
                       </option>
                     ))}
                   </select>

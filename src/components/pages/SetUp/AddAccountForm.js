@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { useDataContext } from '../../Context/DataContext'; //Import the DataContext
 import './AddAccountFormStyles.css';
@@ -8,7 +9,7 @@ function AddAccountForm({ onAddAccount }) {
   const [name, setName] = useState('');
   const [accountType, setAccountType] = useState('');
   const [accountNumber, setAccountNumber] = useState('');
-  const [balance, setBalance] = useState('');
+  const [balance, setBalance] = useState();
 
   const handleSubmit = (e) => {
     e.preventDefault();

@@ -46,11 +46,11 @@ export function DataProvider({ children }) {
     const transactionAmount = parseFloat(newTransaction.amount);
     console.log('newupdatedAccountsbalance1', updatedAccounts[0].balance);
     if (newTransaction.type === 'income') {
-
-    console.log('Income:', transactionAmount);
+      updatedAccounts[accountIndex].balance += transactionAmount;
 
     } else if (newTransaction.type === 'expense') {
-      updatedAccounts[accountIndex].balance += transactionAmount;
+      const temp = parseFloat(updatedAccounts[accountIndex].balance) + transactionAmount;
+      updatedAccounts[accountIndex].balance = temp;
       console.log('newupdatedAccountsbalance2', updatedAccounts[0].balance);
       console.log('Expense:', transactionAmount);
     }
@@ -58,6 +58,12 @@ export function DataProvider({ children }) {
   };
 
   // Other context functions and values
+  const handleDeleteAccount = (accountIndex) => {
+    const updatedTransactions = transactions.filter(transaction => transaction.accountIndex != accountIndex);
+    const updatedAccounts = accounts.filter((account, index) => index !== accountIndex);
+    setAccounts(updatedAccounts);
+    setTransactions(updatedTransactions);
+  };
 
   return (
     <DataContext.Provider
@@ -66,6 +72,7 @@ export function DataProvider({ children }) {
         transactions,
         addAccount,
         addTransaction,
+        handleDeleteAccount
         // Other context values
       }}
     >

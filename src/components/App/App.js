@@ -36,6 +36,10 @@ function App() {
     return (
       <Router>
       <div className='app-container'>
+      <div className="image-container">
+        <img src= '/logo2.png' />
+      </div>
+
         <Routes>
           {/* Redirect to /login by default */}
           <Route path="/" element={<Navigate to="/login" />} />
@@ -66,6 +70,8 @@ function App() {
         <Route path="/setup" element={<SetUp />} />
         <Route path="/weeklysummary" element={<WeeklySummary />} />
         <Route path="/transactions" element={<Transaction />} />
+            {/* Catch-all route that redirects any undefined paths to /login */}
+        <Route path="*" element={<Navigate to="/index" />} />
       </Routes>
     </Router>
     </DataProvider>
